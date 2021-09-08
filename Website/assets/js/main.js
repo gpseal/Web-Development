@@ -163,44 +163,121 @@ var weatherSlider = (async () => {    //USE THIS METHOD FOR HIGHER MARKS MARKS
     return totalWidth;
 });
 
+let weatherWidrth = 0;
+
 let totalWeatherWidth = weatherSlider();
 
-console.log(totalWeatherWidth)
+
+let totalWeatherWidth2 = weatherSlider();
+
 
 // total.then(function(result) {
 //     return result;// "Some User token"
 //  })
+//--------------------------IMAGE SCROLLER------------------------------------//
 
-let imgScroll = document.querySelector(".imageScroll");
 
-for (let i=0; i < 10; i++) {
-    let imageDiv = document.createElement("div");
-    let image = document.createElement("img");
-    image.src = `assets/img/sliderImages/${i}.jpg`;
-    imageDiv.append(image);
-    imgScroll.appendChild(imageDiv);
+// let imgScroll = document.querySelectorAll(".imageScroll");
+
+// for(let j=0; j < 2; j++) {
+//     for (let i=0; i < 3; i++) {
+//         let imageDiv = document.createElement("div");
+//         let image = document.createElement("img");
+//         image.src = `assets/img/sliderImages/${i}.jpg`;
+//         imageDiv.append(image);
+//         imgScroll[j].appendChild(imageDiv);
+//     }
+// }
+
+
+// console.log(imgScroll[0].firstChild) //checks position of first child to move to end of array
+
+
+let ScrollContainer = document.querySelector("#imageScrollContainer");
+
+let moveImgs = function (){
+    imgScrollDist-=1;
+    if (imgScrollDist <= -((imgScrollWidth/2)+1)){
+        imgScrollDist = -0
+    };
+    ScrollContainer.style.transform = `translatex(${imgScrollDist}px)`;
+    console.log(imgScrollDist);
 }
 
-let w = imgScroll.getBoundingClientRect()
 
-console.log(w.width)
 
-var interval;
-let weatherWidth = 7782;
-let weatherDist = -(weatherWidth/4);
 
-let imgScrollWidth = 4000
+let imagesScroll = document.querySelectorAll(".imageScroll")
+
+let imgScrollWidth = 0;
+
+
+imagesScroll.forEach(e => {
+    let w = e.clientWidth
+    imgScrollWidth += w;
+})
+
+ScrollContainer.style.width = `${imgScrollWidth}px`;
+
+
 let imgScrollDist = -(imgScrollWidth/4);
-console.log(imgScrollWidth)
+console.log(imagesScroll[4].clientWidth)
 
 let scrollWhite = document.querySelector('.imageScroll .whiteBack');
-scrollWhite.style.width = `${imgScrollWidth}px`;
+
+
+let imageGallery = document.querySelector(".imageScroll");
+
+console.log(imgScrollWidth)
+
+let scrollCount = 0;
+
+let imageScroller = function (){
+    // var co = ScrollContainer.firstChild.getBoundingClientRect();
+    // console.log(co.left);
+
+    let test = document.createElement('div');
+    test.innerHTML="test"
+    ScrollContainer.appendChild(test);
+
+    if (scrollCount > 50){
+        ScrollContainer.appendChild(test);
+        // ScrollContainer.removeChild(ScrollContainer[0]);
+    }
+    scrollCount += 1;
+    
+}
+console.log(ScrollContainer)
+
+
+// var co = imgScroll.firstChild.getBoundingClientRect();
+// console.log(co.top, co.right, co.bottom, co.left);
+
+// if (imgScroll.firstChild.offsetLeft){
+
+// }
+
+// let w = imgScroll.getBoundingClientRect()
+
+// console.log(w.width)
+
+var interval;
+let weatherWidth = 7890;
+let weatherDist = -(weatherWidth/4);
+
+
+
+
+
 
 // weatherScroll.style.transform = `translatex(${weatherWidth / 3}vw)`;
 
 // weatherScroll.style.transform = `translatex(${dist}px)`;
 
-let moveLeft = function (target){
+
+
+
+let timer = function (target){
     interval = setInterval(target, 50); //to create delays before repeatedly executing function
 }
 
@@ -210,20 +287,8 @@ let moveWeather = function (){
     weatherDist = -(weatherWidth/4)
     };
     weatherScroll.style.transform = `translatex(${weatherDist}px)`;
-    // console.log(weatherDist);
+    
 }
-
-let moveImgs = function (){
-    imgScrollDist-=1;
-    if (imgScrollDist <= -(imgScrollWidth/2)){
-        imgScrollDist = -(imgScrollWidth/4)
-    };
-    imgScroll.style.transform = `translatex(${imgScrollDist}px)`;
-    // console.log(dist);
-}
-
-
-
 
 
 var children = document.querySelector(".imageScroll").childNodes;
@@ -234,13 +299,14 @@ var totalWidth = 0;
     
 // }
 
-console.log(children[4].clientHeight)
+// console.log(children[4].clientHeight)
 
 console.log(children);
 
 
 // // console.log(totalWidth);
 
-moveLeft(moveWeather);
-moveLeft(moveImgs);
+timer(imageScroller);
+timer(moveWeather);
+timer(moveImgs);
 
