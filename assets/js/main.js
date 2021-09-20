@@ -163,7 +163,7 @@ var weatherSlider = (async () => {    //USE THIS METHOD FOR HIGHER MARKS MARKS
     return totalWidth;
 });
 
-let weatherWidrth = 0;
+// let weatherWidth = 0;
 
 let totalWeatherWidth = weatherSlider();
 
@@ -201,7 +201,7 @@ let moveImgs = function (){
         imgScrollDist = -0
     };
     ScrollContainer.style.transform = `translatex(${imgScrollDist}px)`;
-    console.log(imgScrollDist);
+    // console.log(imgScrollDist);
 }
 
 
@@ -210,7 +210,6 @@ let moveImgs = function (){
 let imagesScroll = document.querySelectorAll(".imageScroll")
 
 let imgScrollWidth = 0;
-
 
 imagesScroll.forEach(e => {
     let w = e.clientWidth
@@ -224,7 +223,6 @@ let imgScrollDist = -(imgScrollWidth/4);
 console.log(imagesScroll[4].clientWidth)
 
 let scrollWhite = document.querySelector('.imageScroll .whiteBack');
-
 
 let imageGallery = document.querySelector(".imageScroll");
 
