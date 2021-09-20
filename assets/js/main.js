@@ -207,14 +207,39 @@ let moveImgs = function (){
 
 
 
-let imagesScroll = document.querySelectorAll(".imageScroll")
+var imgs = document.images,
+    len = imgs.length,
+    counter = 0;
 
-let imgScrollWidth = 0;
+[].forEach.call( imgs, function( img ) {
+    if(img.complete)
+      incrementCounter();
+    else
+      img.addEventListener( 'load', incrementCounter, false );
+} );
 
-imagesScroll.forEach(e => {
-    let w = e.clientWidth
-    imgScrollWidth += w;
-})
+function incrementCounter() {
+    counter++;
+    if ( counter === len ) {
+        console.log( 'All images loaded!' );
+        let imagesScroll = document.querySelectorAll(".imageScroll")
+
+        let imgScrollWidth = 0;
+
+        imagesScroll.forEach(e => {
+            console.log(e,e.getBoundingClientRect().width);
+            let w = e.clientWidth
+            imgScrollWidth += w;
+        })
+
+        
+    }
+}
+
+
+
+
+
 
 ScrollContainer.style.width = `${imgScrollWidth}px`;
 
