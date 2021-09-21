@@ -163,49 +163,26 @@ var weatherSlider = (async () => {    //USE THIS METHOD FOR HIGHER MARKS MARKS
     return totalWidth;
 });
 
-// let weatherWidth = 0;
 
 let totalWeatherWidth = weatherSlider();
 
-
 let totalWeatherWidth2 = weatherSlider();
 
-
-// total.then(function(result) {
-//     return result;// "Some User token"
-//  })
 //--------------------------IMAGE SCROLLER------------------------------------//
 
 
-// let imgScroll = document.querySelectorAll(".imageScroll");
-
-// for(let j=0; j < 2; j++) {
-//     for (let i=0; i < 3; i++) {
-//         let imageDiv = document.createElement("div");
-//         let image = document.createElement("img");
-//         image.src = `assets/img/sliderImages/${i}.jpg`;
-//         imageDiv.append(image);
-//         imgScroll[j].appendChild(imageDiv);
-//     }
-// }
-
-
-// console.log(imgScroll[0].firstChild) //checks position of first child to move to end of array
-
-
-let ScrollContainer = document.querySelector("#imageScrollContainer");
-
-let moveImgs = function (){
-    imgScrollDist-=1;
-    if (imgScrollDist <= -((imgScrollWidth/2)+1)){
-        imgScrollDist = -0
-    };
-    ScrollContainer.style.transform = `translatex(${imgScrollDist}px)`;
-    // console.log(imgScrollDist);
+for(let j=0; j < 2; j++) {
+    for (let i=0; i < 10; i++) {
+        let imageDiv = document.createElement("div");
+        imageDiv.className = "imageScroll";
+        let image = document.createElement("img");
+        image.src = `img/sliderImages/${i}.jpg`;
+        imageDiv.append(image);
+        document.getElementById("imageScrollContainer").appendChild(imageDiv);
+    }
 }
 
-
-
+//LOADS ALL IMAGES before calculating widths
 
 var imgs = document.images,
     len = imgs.length,
@@ -222,83 +199,86 @@ function incrementCounter() {
     counter++;
     if ( counter === len ) {
         console.log( 'All images loaded!' );
+
+        //CALCULATES TOTAL WIDTH OF IMAGE SCROLLER 
         let imagesScroll = document.querySelectorAll(".imageScroll")
-
         let imgScrollWidth = 0;
-
         imagesScroll.forEach(e => {
             console.log(e,e.getBoundingClientRect().width);
             let w = e.clientWidth
             imgScrollWidth += w;
         })
+        console.log(imgScrollWidth)
 
-        
+        let imgScrollDist = 0;
+
+        let ScrollContainer = document.querySelector("#imageScrollContainer");
+        ScrollContainer.style.width = `${imgScrollWidth}px`;  //sets width of scrolling images container to width of all images in gallery
+
+        //SCROLLS IMAGES
+        let moveImgs = function (){
+            imgScrollDist-=1;
+            if (imgScrollDist <= -((imgScrollWidth/2)+1)){ //image x position will be reset when half of total images have scrolled past left margin of page
+                imgScrollDist = 0
+            };
+            ScrollContainer.style.transform = `translatex(${imgScrollDist}px)`;  //moves images 1 point to the left
+            console.log(imgScrollDist);
+        }
+
+        let timer = function (target){
+        interval = setInterval(target, 50); //to create delays before repeatedly executing function
+        }
+        timer(moveImgs); //repeats moveImgs function endlessly
     }
 }
 
+// let imagesScroll = document.querySelectorAll(".imageScroll")
+
+// let imgScrollWidth = 0;
+
+// imagesScroll.forEach(e => {
+//     console.log(e,e.getBoundingClientRect().width);
+//     let w = e.clientWidth
+//     imgScrollWidth += w;
+// })
+
+// ScrollContainer.style.width = `${imgScrollWidth}px`;
+
+// let imgScrollDist = -(imgScrollWidth/4);
+// console.log(imagesScroll[4].clientWidth)
+
+// let scrollWhite = document.querySelector('.imageScroll .whiteBack');
+
+// let imageGallery = document.querySelector(".imageScroll");
+
+// console.log(imgScrollWidth)
+
+// let scrollCount = 0;
 
 
 
 
+// let imageScroller = function (){
 
-ScrollContainer.style.width = `${imgScrollWidth}px`;
+//     let test = document.createElement('div');
+//     test.innerHTML="test"
+//     ScrollContainer.appendChild(test);
 
-
-let imgScrollDist = -(imgScrollWidth/4);
-console.log(imagesScroll[4].clientWidth)
-
-let scrollWhite = document.querySelector('.imageScroll .whiteBack');
-
-let imageGallery = document.querySelector(".imageScroll");
-
-console.log(imgScrollWidth)
-
-let scrollCount = 0;
-
-let imageScroller = function (){
-    // var co = ScrollContainer.firstChild.getBoundingClientRect();
-    // console.log(co.left);
-
-    let test = document.createElement('div');
-    test.innerHTML="test"
-    ScrollContainer.appendChild(test);
-
-    if (scrollCount > 50){
-        ScrollContainer.appendChild(test);
-        // ScrollContainer.removeChild(ScrollContainer[0]);
-    }
-    scrollCount += 1;
+//     if (scrollCount > 50){
+//         ScrollContainer.appendChild(test);
+//     }
+//     scrollCount += 1;
     
-}
-console.log(ScrollContainer)
-
-
-// var co = imgScroll.firstChild.getBoundingClientRect();
-// console.log(co.top, co.right, co.bottom, co.left);
-
-// if (imgScroll.firstChild.offsetLeft){
-
 // }
+// console.log(ScrollContainer)
 
-// let w = imgScroll.getBoundingClientRect()
 
-// console.log(w.width)
+
+
 
 var interval;
 let weatherWidth = 7890;
 let weatherDist = -(weatherWidth/4);
-
-
-
-
-
-
-// weatherScroll.style.transform = `translatex(${weatherWidth / 3}vw)`;
-
-// weatherScroll.style.transform = `translatex(${dist}px)`;
-
-
-
 
 let timer = function (target){
     interval = setInterval(target, 50); //to create delays before repeatedly executing function
@@ -329,7 +309,9 @@ console.log(children);
 
 // // console.log(totalWidth);
 
-timer(imageScroller);
+// timer(imageScroller);
 timer(moveWeather);
-timer(moveImgs);
+
+
+
 
