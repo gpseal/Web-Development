@@ -37,7 +37,7 @@
         <div class = "navigation">
             <div class = "navButtons">navigation 1</div>
             <div class = "navButtons">navigation 2</div>
-            <div class = "navLogo">logo</div>
+            <img src="img/index_img/navlogo.png" class = "navLogo">
             <div class = "navButtons">navigation 3</div>
             <div class = "navButtons">navigation 4</div>
         </div>
@@ -172,6 +172,26 @@
 
 </body>
 
+<script>
+
+window.onbeforeunload = function () {
+    window.scrollTo(0,0);
+};
+
+// window.scroll({
+//   top: 2500, 
+//   left: 0, 
+//   behavior: 'smooth'
+// });
+/*
+// Scroll certain amounts from current position 
+window.scrollBy({ 
+  top: 100, // could be negative value
+  left: 0, 
+  behavior: 'smooth' 
+});*/
+
+</script>
 
 
 <script src="js/main.js"></script>

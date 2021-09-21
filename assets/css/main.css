@@ -46,20 +46,24 @@ body {
   }
 
 .logo{
-  transform: translatex('200px');
   width: 65%;
   text-align: center;
-  align-self: center;
+  margin-top:auto;
+  margin-bottom:auto;
+  justify-self: center;
   opacity: 0.7;
-  margin-top: 12%;
 }
+
+.logo img{
+  width: 100%;
+}
+
 .headerimg{
   display: flex;  
   position: relative;
   width: 100%;
   height: 100vh;
   justify-content: center;
-  align-items: center;
   flex-wrap:wrap;
   top: 0px;
 }
@@ -121,11 +125,13 @@ background-repeat: repeat-x;
 }
 
 .navLogo{
+  margin-top: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
   color: white;
   margin-left: auto;
+  height: 70%;
 }
 
 .roundIconContainer{
@@ -155,6 +161,9 @@ background-repeat: repeat-x;
 .bannerText{
   display: flex;
   justify-content: flex-end;
+  position: absolute;
+  bottom:0;
+  z-index: 1;
   /* align-self: end; */
   width: 65%;
   /* height: 100px/; */
@@ -540,7 +549,7 @@ p{
   align-items: center;
   flex-wrap: nowrap;
   padding: 10px;
-  font-size: 20px;
+  font-size: 40px;
   font-family: 'Lato', sans-serif;
   font-style: italic;
   
@@ -549,15 +558,21 @@ p{
 .weather div:nth-child(even){
   color: teal;
   font-style: normal;
-
+  font-size: 30px;
+  /* padding-right: 100px; */
 }
 
 .weather div:nth-child(even)::after{
-  content: "/";
-  padding-left: 10px;
-  font-size: 40px;
+  content: "";
+  margin-left: 70px;
+  margin-right: 70px;
+  font-size: 100px;
+  height: 150px;
+  width: 1px;
+  background: teal;
+  transform: translate(-50%) rotate(45deg);
+  /* position: absolute; */
   }
-
 
   .experiment{
     width: 3000px;

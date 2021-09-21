@@ -163,6 +163,7 @@ var weatherSlider = (async () => {    //USE THIS METHOD FOR HIGHER MARKS MARKS
     return totalWidth;
 });
 
+console.log(weatherSlider)
 
 let totalWeatherWidth = weatherSlider();
 
@@ -222,7 +223,7 @@ function incrementCounter() {
                 imgScrollDist = 0
             };
             ScrollContainer.style.transform = `translatex(${imgScrollDist}px)`;  //moves images 1 point to the left
-            console.log(imgScrollDist);
+            // console.log(imgScrollDist);
         }
 
         let timer = function (target){
