@@ -61,6 +61,7 @@ body {
   justify-content: center;
   align-items: center;
   flex-wrap:wrap;
+  top: 0px;
 }
 
 .fadeGradient{
@@ -162,8 +163,9 @@ background-repeat: repeat-x;
 video {
   object-fit: cover;
   position: absolute;
-  top: 0;
+  top: 0px;
   height:100vh;
+  width: 100vw;
 }
 
 .windowVideo {
@@ -283,6 +285,7 @@ h2, h1, .leftCol, .midCol, .rightCol, .logo, .boxText, .contactGrid div, .textBl
 }
 
 .bannerVid{
+  top: 0px;
   opacity: 0;
   transition: opacity 3000ms ease-out, transform 500ms ease-out;
 }
