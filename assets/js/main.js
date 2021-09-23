@@ -1,5 +1,6 @@
 
 
+
 let roundIcon = document.querySelector('.roundIcon');  //make variable 'roundIcon' associate with .btn elements
 let slideLeftCol = document.querySelector('.leftCol'); //variable for left coulmn
 let slideRightCol = document.querySelector('.rightCol');//variable for right coulmn
@@ -10,6 +11,14 @@ let move = 5;
 const body = document.querySelector('body');
 
 
+let footer = document.querySelector('.footerContainer');
+
+var rect = footer.getBoundingClientRect();
+
+console.log(footer.pageYOffset)
+
+
+// console.log("offset" window.pageYOffset)
 
 
 // window.addEventListener('load', (event) => {
@@ -41,12 +50,23 @@ const body = document.querySelector('body');
 //         // console.log(rightImage.top, rightImage.right, rightImage.bottom, rightImage.left);
 // });
 
-let menu = document.querySelector('.header');
+// let menu = document.querySelector('.header');
+
+let scrollbar = document.querySelector('#my-scrollbar');
+
+
+
+// var rect = scrollbar.getBoundingClientRect();
+
+console.log(roundIcon);
+var rect = roundIcon.getBoundingClientRect();
+console.log(rect.top, rect.right, rect.bottom, rect.left);
 
 
 document.addEventListener("scroll", event => {
     let y = window.scrollY
     // console.log(y)
+    
     if (y>10)
     {
         menu.classList.add("headerFade") //add class to menu
@@ -90,6 +110,10 @@ let boxMove = 50;
 let circleRotate = 0;
 let scrollPage = document.querySelector(".scroll")
 
+
+
+console.log(Scrollbar)
+
 //CHECKING DIRECTION OF SCROLL
 // element should be replaced with the actual target element on which you have applied scroll, use window in case of no target element.
 window.addEventListener("scroll", function(){ // or window.addEventListener("scroll"....
@@ -105,7 +129,7 @@ window.addEventListener("scroll", function(){ // or window.addEventListener("scr
     slideRightCol.style.transform = `translateY(${boxMove}px)`; //slides columns up and down
     roundIcon.style.transform = `rotate(${circleRotate}deg)`;
    } else {
-    // console.log("up")
+    console.log("up")
     boxMove += 2;
     circleRotate -= 5;
     console.log(boxMove + " up")
@@ -313,6 +337,19 @@ console.log(children);
 // timer(imageScroller);
 timer(moveWeather);
 
+// let 
 
 
+// timer(position);
 
+console.log(scrollbar);
+
+var myScrollbar = document.getElementById(`imageScrollContainer`)
+
+console.log(myScrollbar)
+var myFunction = () => {
+    console.log(`It works!`)
+}
+
+myScrollbar.addEventListener("move", myFunction, false)
+// $('#my-scrollbar').on("scroll", e=> console.log(e))
