@@ -15,7 +15,6 @@ let footer = document.querySelector('.footerContainer');
 
 var rect = footer.getBoundingClientRect();
 
-console.log(footer.pageYOffset)
 
 
 // console.log("offset" window.pageYOffset)
@@ -50,17 +49,15 @@ console.log(footer.pageYOffset)
 //         // console.log(rightImage.top, rightImage.right, rightImage.bottom, rightImage.left);
 // });
 
-// let menu = document.querySelector('.header');
-
-let scrollbar = document.querySelector('#my-scrollbar');
+let menu = document.querySelector('.header');
 
 
 
 // var rect = scrollbar.getBoundingClientRect();
 
-console.log(roundIcon);
+// console.log(roundIcon);
 var rect = roundIcon.getBoundingClientRect();
-console.log(rect.top, rect.right, rect.bottom, rect.left);
+// console.log(rect.top, rect.right, rect.bottom, rect.left);
 
 
 document.addEventListener("scroll", event => {
@@ -112,7 +109,7 @@ let scrollPage = document.querySelector(".scroll")
 
 
 
-console.log(Scrollbar)
+
 
 //CHECKING DIRECTION OF SCROLL
 // element should be replaced with the actual target element on which you have applied scroll, use window in case of no target element.
@@ -129,10 +126,10 @@ window.addEventListener("scroll", function(){ // or window.addEventListener("scr
     slideRightCol.style.transform = `translateY(${boxMove}px)`; //slides columns up and down
     roundIcon.style.transform = `rotate(${circleRotate}deg)`;
    } else {
-    console.log("up")
+    // console.log("up")
     boxMove += 2;
     circleRotate -= 5;
-    console.log(boxMove + " up")
+    // console.log(boxMove + " up")
     slideLeftCol.style.transform = `translateY(${boxMove}px)`; //slides columns up and down
     slideRightCol.style.transform = `translateY(${boxMove}px)`; //slides columns up and down
     roundIcon.style.transform = `rotate(${circleRotate}deg)`;
@@ -187,7 +184,7 @@ var weatherSlider = (async () => {    //USE THIS METHOD FOR HIGHER MARKS MARKS
     return totalWidth;
 });
 
-console.log(weatherSlider)
+// console.log(weatherSlider)
 
 let totalWeatherWidth = weatherSlider();
 
@@ -223,17 +220,17 @@ var imgs = document.images,
 function incrementCounter() {
     counter++;
     if ( counter === len ) {
-        console.log( 'All images loaded!' );
+        // console.log( 'All images loaded!' );
 
         //CALCULATES TOTAL WIDTH OF IMAGE SCROLLER 
         let imagesScroll = document.querySelectorAll(".imageScroll")
         let imgScrollWidth = 0;
         imagesScroll.forEach(e => {
-            console.log(e,e.getBoundingClientRect().width);
+            // console.log(e,e.getBoundingClientRect().width);
             let w = e.clientWidth
             imgScrollWidth += w;
         })
-        console.log(imgScrollWidth)
+        // console.log(imgScrollWidth)
 
         let imgScrollDist = 0;
 
@@ -256,6 +253,8 @@ function incrementCounter() {
         timer(moveImgs); //repeats moveImgs function endlessly
     }
 }
+
+
 
 // let imagesScroll = document.querySelectorAll(".imageScroll")
 
@@ -322,6 +321,10 @@ let moveWeather = function (){
 var children = document.querySelector(".imageScroll").childNodes;
 var totalWidth = 0;
 
+
+timer(moveWeather);
+
+
 // for (var i = ; i < children.length; i++) {
 //     totalWidth += children[i].clientWidth;
     
@@ -329,27 +332,48 @@ var totalWidth = 0;
 
 // console.log(children[4].clientHeight)
 
-console.log(children);
+// console.log(children);
 
 
 // // console.log(totalWidth);
 
 // timer(imageScroller);
-timer(moveWeather);
 
 // let 
 
 
 // timer(position);
 
-console.log(scrollbar);
+// console.log(scrollbar);
 
-var myScrollbar = document.getElementById(`imageScrollContainer`)
+// var myScrollbar = document.getElementById(`imageScrollContainer`)
 
-console.log(myScrollbar)
-var myFunction = () => {
-    console.log(`It works!`)
+
+let scrollbar = document.querySelector('.scrollbar-thumb-y');
+
+
+// console.log(scrollbar.transform.translateX)
+
+
+
+// myScrollbar.addEventListener("move", myFunction, false)
+// $('#my-scrollbar').on("scroll", e=> console.log(e))
+
+
+var footerContainer = document.querySelector('.footerContainer')
+var footerPos = myScrollbar.getBoundingClientRect();
+console.log(footerPos.top)
+
+
+var style = window.getComputedStyle(scrollbar);
+var matrix = new WebKitCSSMatrix(style.transform);
+
+console.log(matrix)
+console.log(matrix)
+
+
+var showChange = () => {
+    console.log(footerPos.left)
 }
 
-myScrollbar.addEventListener("move", myFunction, false)
-// $('#my-scrollbar').on("scroll", e=> console.log(e))
+timer(showChange);

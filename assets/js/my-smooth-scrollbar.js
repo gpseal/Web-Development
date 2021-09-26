@@ -3,8 +3,8 @@ console.log("now loading scroll")
 var Scrollbar = window.Scrollbar;
 
 var options = {
-    'damping': 0.5
-    // thumbMinSize: number,
+    'damping': 0.01,
+    thumbMinSize: 200,
     // renderByPixels: boolean,
     // alwaysShowTracks: boolean,
     // continuousScrolling: boolean,
@@ -15,4 +15,6 @@ var options = {
 
 Scrollbar.init(document.querySelector('#my-scrollbar', options));
 
-Scrollbar.initAll();
+let nav = document.querySelector('.header');
+
+Scrollbar.destroy(nav);
