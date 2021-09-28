@@ -156,7 +156,7 @@ let weatherScroll = document.querySelector(".weather");
 //WEATHER SCROLL
 
 var weatherSlider = (async () => {    //USE THIS METHOD FOR HIGHER MARKS MARKS
-        let res = await fetch("http://api.openweathermap.org/data/2.5/group?id=4176559,7839413,7839579,2073124,4971068,1854345,3171654,3390760,5329830,6359472&units=metric&appid=c5b06d2187f47581abc4627906708ad5");
+        let res = await fetch("https://api.openweathermap.org/data/2.5/group?id=4176559,7839413,7839579,2073124,4971068,1854345,3171654,3390760,5329830,6359472&units=metric&appid=c5b06d2187f47581abc4627906708ad5");
         let data = await res.json();
         let weather = data;
 

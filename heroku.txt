@@ -1,0 +1,7 @@
+
+INSTALL HEROKU HERE: https://devcenter.heroku.com/articles/heroku-cli
+
+GITBASH:
+
+'heroku local web' - runs locally
+
