@@ -110,15 +110,41 @@ let scrollPage = document.querySelector(".scroll")
 
 
 
+var Scrollbar = window.Scrollbar;
+
+let scrollbar = Scrollbar.init(document.querySelector('#my-scrollbar'), {});
+
+
+scrollbar.addListener((status) => {
+    // console.log(scrollbar.offset.y)
+  });
+
+
+
+
+
 
 //CHECKING DIRECTION OF SCROLL
 // element should be replaced with the actual target element on which you have applied scroll, use window in case of no target element.
-window.addEventListener("scroll", function(){ // or window.addEventListener("scroll"....
+scrollbar.addListener((status) => { // or window.addEventListener("scroll"....
    var st = window.pageYOffset || document.documentElement.scrollTop; // Credits: "https://github.com/qeremy/so/blob/master/so.dom.js#L426"
 //    scrollPage.style.transform = `translateY(${-st}px)`;
 //    console.log(scrollPage.style.transform)
 //    console.log(boxMove)
-   
+console.log(scrollbar.offset.y)
+
+circleRotate = scrollbar.offset.y / 4;
+
+roundIcon.style.transform = `rotate(${circleRotate}deg)`;
+
+// if (scrollbar.offset.y > 0) {
+//     circleRotate = scrollbar.offset.y;
+//     console.log(circleRotate)
+//     roundIcon.style.transform = `rotate(${circleRotate}deg)`;
+// }
+
+
+
    if (st > lastScrollTop){
     boxMove -= 2;
     circleRotate += 5;
@@ -165,7 +191,7 @@ var weatherSlider = (async () => {    //USE THIS METHOD FOR HIGHER MARKS MARKS
                 let city = document.createElement('div');
                 city.innerHTML = element.name;
                 let temperature = document.createElement('div');
-                temperature.innerHTML = element.main.temp + "°";
+                temperature.innerHTML = `${element.main.temp}°`;
                 weatherScroll.appendChild(city.cloneNode(true))
                 weatherScroll.appendChild(temperature.cloneNode(true))
                 });
@@ -349,7 +375,7 @@ timer(moveWeather);
 // var myScrollbar = document.getElementById(`imageScrollContainer`)
 
 
-let scrollbar = document.querySelector('.scrollbar-thumb-y');
+//let scrollbar = document.querySelector('.scrollbar-thumb-y');
 
 
 // console.log(scrollbar.transform.translateX)
@@ -361,19 +387,21 @@ let scrollbar = document.querySelector('.scrollbar-thumb-y');
 
 
 var footerContainer = document.querySelector('.footerContainer')
-var footerPos = myScrollbar.getBoundingClientRect();
-console.log(footerPos.top)
+// var footerPos = myScrollbar.getBoundingClientRect();
+// console.log(footerPos.top)
 
-
+/*
 var style = window.getComputedStyle(scrollbar);
 var matrix = new WebKitCSSMatrix(style.transform);
 
 console.log(matrix)
-console.log(matrix)
+console.log(matrix)*/
 
 
+
+/*
 var showChange = () => {
     console.log(footerPos.left)
 }
 
-timer(showChange);
+timer(showChange);*/
