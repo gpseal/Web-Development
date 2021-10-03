@@ -156,7 +156,9 @@ background-repeat: repeat-x;
   background-size: 100%;
   height: 100%;
   width: 100%;
-  transition: 500ms ease all;
+  /* transition-timing-function: linear;
+  transition-timing-function: cubic-bezier(0, 0, 1, 1); */
+  transition: 1000ms ease-out;
 }
 
 .fourColumns{

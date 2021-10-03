@@ -49,8 +49,10 @@ var rect = footer.getBoundingClientRect();
 //         // console.log(rightImage.top, rightImage.right, rightImage.bottom, rightImage.left);
 // });
 
-let menu = document.querySelector('.header');
 
+
+
+let menu = document.querySelector('.header');
 
 
 // var rect = scrollbar.getBoundingClientRect();
@@ -108,53 +110,42 @@ let circleRotate = 0;
 let scrollPage = document.querySelector(".scroll")
 
 
+var options = {
+    damping: .05,
+    // thumbMinSize: number,
+    // renderByPixels: boolean,
+    // alwaysShowTracks: boolean,
+    // continuousScrolling: boolean,
+    // wheelEventTarget: EventTarget | null,
+    // plugins: any,
+  };
 
 
 var Scrollbar = window.Scrollbar;
-
-let scrollbar = Scrollbar.init(document.querySelector('#my-scrollbar'), {});
+let scrollbar = Scrollbar.init(document.querySelector('#my-scrollbar'), options);
 
 
 scrollbar.addListener((status) => {
     // console.log(scrollbar.offset.y)
   });
 
-
-
-
-
-
 //CHECKING DIRECTION OF SCROLL
 // element should be replaced with the actual target element on which you have applied scroll, use window in case of no target element.
 scrollbar.addListener((status) => { // or window.addEventListener("scroll"....
-   var st = window.pageYOffset || document.documentElement.scrollTop; // Credits: "https://github.com/qeremy/so/blob/master/so.dom.js#L426"
-//    scrollPage.style.transform = `translateY(${-st}px)`;
-//    console.log(scrollPage.style.transform)
-//    console.log(boxMove)
-console.log(scrollbar.offset.y)
+   var st = scrollbar.offset.y; // Credits: "https://github.com/qeremy/so/blob/master/so.dom.js#L426"
 
-circleRotate = scrollbar.offset.y / 4;
-
-roundIcon.style.transform = `rotate(${circleRotate}deg)`;
-
-// if (scrollbar.offset.y > 0) {
-//     circleRotate = scrollbar.offset.y;
-//     console.log(circleRotate)
-//     roundIcon.style.transform = `rotate(${circleRotate}deg)`;
-// }
-
-
+console.log(circleRotate);
 
    if (st > lastScrollTop){
-    boxMove -= 2;
-    circleRotate += 5;
+    boxMove -= .5;
+    circleRotate += 3;
     slideLeftCol.style.transform = `translateY(${boxMove}px)`; //slides columns up and down
     slideRightCol.style.transform = `translateY(${boxMove}px)`; //slides columns up and down
     roundIcon.style.transform = `rotate(${circleRotate}deg)`;
    } else {
     // console.log("up")
-    boxMove += 2;
-    circleRotate -= 5;
+    boxMove += .5;
+    circleRotate -= 3;
     // console.log(boxMove + " up")
     slideLeftCol.style.transform = `translateY(${boxMove}px)`; //slides columns up and down
     slideRightCol.style.transform = `translateY(${boxMove}px)`; //slides columns up and down
