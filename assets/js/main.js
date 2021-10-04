@@ -52,7 +52,7 @@ var rect = footer.getBoundingClientRect();
 
 
 
-let menu = document.querySelector('.header');
+
 
 
 // var rect = scrollbar.getBoundingClientRect();
@@ -62,18 +62,18 @@ var rect = roundIcon.getBoundingClientRect();
 // console.log(rect.top, rect.right, rect.bottom, rect.left);
 
 
-document.addEventListener("scroll", event => {
-    let y = window.scrollY
-    // console.log(y)
+// document.addEventListener("scroll", event => {
+//     let y = window.scrollY
+//     // console.log(y)
     
-    if (y>10)
-    {
-        menu.classList.add("headerFade") //add class to menu
-    }
-    else{
-        menu.classList.remove("headerFade")
-    }
-  });
+//     if (y>10)
+//     {
+//         menu.classList.add("headerFade") //add class to menu
+//     }
+//     else{
+//         menu.classList.remove("headerFade")
+//     }
+//   });
 
 
 const faders = document.querySelectorAll('h2, h1, h3, .leftCol, .rightCol, .midCol, .logo, .bannerVid, .boxText, .navigation, .contactGrid div, .textBlock'); //target item of fade
@@ -107,12 +107,13 @@ faders.forEach(fader => {
 var lastScrollTop = 0;
 let boxMove = 50;
 let circleRotate = 0;
+let scrollMove = 0;
 let scrollPage = document.querySelector(".scroll")
 
 
 var options = {
     damping: .05,
-    // thumbMinSize: number,
+    thumbMinSize: 200,
     // renderByPixels: boolean,
     // alwaysShowTracks: boolean,
     // continuousScrolling: boolean,
@@ -121,56 +122,97 @@ var options = {
   };
 
 
+
 var Scrollbar = window.Scrollbar;
 let scrollbar = Scrollbar.init(document.querySelector('#my-scrollbar'), options);
 
+console.log(scrollbar.size)
+
+let ScrollbarSize = {
+    container: {
+      width: 100,
+      height: 100,
+    },
+    content: {
+      width: 10,
+      height: 10,
+    },
+  };
+  scrollbar.update();
+
+// document.getElementById("scroll-bar-block-top").style.height = "10px";
+let scrollBlockTop = document.getElementById("scroll-bar-block-top"); //for altering custom scrollbar appearance
+
+
+
+// scrollBlockTop.style.height = "20px";
+
+// console.log(scrollBlockTop.style.height)
 
 scrollbar.addListener((status) => {
     // console.log(scrollbar.offset.y)
   });
 
+console.log(document.querySelector('body'));
 //CHECKING DIRECTION OF SCROLL
 // element should be replaced with the actual target element on which you have applied scroll, use window in case of no target element.
 scrollbar.addListener((status) => { // or window.addEventListener("scroll"....
    var st = scrollbar.offset.y; // Credits: "https://github.com/qeremy/so/blob/master/so.dom.js#L426"
+   scrollBlockTop.style.height = `${st*(150/3907)}px`;
+   let menu = document.querySelector('.header'); //navigation will change appearance on scroll
+   
+   if (st>10)
+   {
+       menu.classList.add("headerFade") //add class to menu, should toggle be used here?
+   }
+   else{
+       menu.classList.remove("headerFade")
+   }
 
-console.log(circleRotate);
+console.log(st);
 
+   //elements that movedepending on scroll
    if (st > lastScrollTop){
-    boxMove -= .5;
+    
+    boxMove -= .7;
     circleRotate += 3;
+    
+
+    // scrollBlockTop.style.height = `${scrollMove}px`;
+
     slideLeftCol.style.transform = `translateY(${boxMove}px)`; //slides columns up and down
     slideRightCol.style.transform = `translateY(${boxMove}px)`; //slides columns up and down
     roundIcon.style.transform = `rotate(${circleRotate}deg)`;
    } else {
     // console.log("up")
-    boxMove += .5;
+
+    boxMove += .7;
     circleRotate -= 3;
+
+    // console.log(scrollMove)
     // console.log(boxMove + " up")
+    // scrollBlockTop.style.height = `${scrollMove}px`;
     slideLeftCol.style.transform = `translateY(${boxMove}px)`; //slides columns up and down
     slideRightCol.style.transform = `translateY(${boxMove}px)`; //slides columns up and down
     roundIcon.style.transform = `rotate(${circleRotate}deg)`;
    }
    lastScrollTop = st <= 0 ? 0 : st;  //Not sure how this works
 
-   //if (st <= 0){
-//        lastScrollTop = 0;
-//    } 
-// else{
-    // lastScrollTop = 0;
-// }
-
    if(boxMove > 152)
-    {boxMove = 152}
+        {boxMove = 152};
    if(boxMove < -100)
-   {boxMove = -100}
+        {boxMove = -100};
+    
+    if (scrollMove<0) {
+        scrollMove = 0;
+    }
+        
 
 }, false);
 
-let weatherScroll = document.querySelector(".weather");
-
 
 //WEATHER SCROLL
+let weatherScroll = document.querySelector(".weather");
 
 var weatherSlider = (async () => {    //USE THIS METHOD FOR HIGHER MARKS MARKS
         let res = await fetch("https://api.openweathermap.org/data/2.5/group?id=4176559,7839413,7839579,2073124,4971068,1854345,3171654,3390760,5329830,6359472&units=metric&appid=c5b06d2187f47581abc4627906708ad5");
