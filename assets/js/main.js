@@ -1,11 +1,13 @@
 
 
 
-let roundIcon = document.querySelector('.roundIcon');  //make variable 'roundIcon' associate with .btn elements
+let roundIcon = document.querySelectorAll('.roundIcon');  //make variable 'roundIcon' associate with .btn elements
 let slideLeftCol = document.querySelector('.leftCol'); //variable for left coulmn
 let slideRightCol = document.querySelector('.rightCol');//variable for right coulmn
-let test = "test";
-// console.log(test)
+let test = document.querySelectorAll('.roundIcon');
+console.log(test)
+
+
 let rotate = 10; //rotation value for round icons
 let move = 5;
 const body = document.querySelector('body');
@@ -16,64 +18,6 @@ let footer = document.querySelector('.footerContainer');
 var rect = footer.getBoundingClientRect();
 
 
-
-// console.log("offset" window.pageYOffset)
-
-
-// window.addEventListener('load', (event) => {
-// // This prevents the page from scrolling down to where it was previously.
-//     if ('scrollRestoration' in history) {
-//         history.scrollRestoration = 'manual';  //https://stackoverflow.com/questions/4210798/how-to-scroll-to-top-of-page-with-javascript-jquery
-//     }
-//     // This is needed if the user scrolls down during page load and you want to make sure the page is scrolled to the top once it's fully loaded. This has Cross-browser support.
-//     window.scrollTo(0,0);
-//     console.log('page is fully loaded');
-//   });
-
-
-// body.addEventListener('wheel', (e) => { //looking for mouse wheel turn
-//     let y = e.deltaY; 
-//     rotate = rotate + (y/8);
-//     move = move  - (y/20);
-//     roundIcon.style.transform = `rotate(${rotate}deg)`;
-//     if (move < 0)
-//     {move = 0;}
-//     if (move > 70)
-//     {move = 70;}
-//     if (move >0 && move <150 )
-//         {
-//             // slideLeftCol.style.transform = `translateY(${move}px)`; //slides columns up and down
-//             // slideRightCol.style.transform = `translateY(${move}px)`; //slides columns up and down
-//             // // console.log(move);
-//         }
-//         // console.log(rightImage.top, rightImage.right, rightImage.bottom, rightImage.left);
-// });
-
-
-
-
-
-
-
-// var rect = scrollbar.getBoundingClientRect();
-
-// console.log(roundIcon);
-var rect = roundIcon.getBoundingClientRect();
-// console.log(rect.top, rect.right, rect.bottom, rect.left);
-
-
-// document.addEventListener("scroll", event => {
-//     let y = window.scrollY
-//     // console.log(y)
-    
-//     if (y>10)
-//     {
-//         menu.classList.add("headerFade") //add class to menu
-//     }
-//     else{
-//         menu.classList.remove("headerFade")
-//     }
-//   });
 
 
 const faders = document.querySelectorAll('h2, h1, h3, .leftCol, .rightCol, .midCol, .logo, .bannerVid, .boxText, .navigation, .contactGrid div, .textBlock'); //target item of fade
@@ -182,7 +126,17 @@ console.log(st);
 
     slideLeftCol.style.transform = `translateY(${boxMove}px)`; //slides columns up and down
     slideRightCol.style.transform = `translateY(${boxMove}px)`; //slides columns up and down
-    roundIcon.style.transform = `rotate(${circleRotate}deg)`;
+    
+    roundIcon.forEach(rotateIcons)
+    function rotateIcons(item, index, arr){
+        item.style.transform = `rotate(${circleRotate}deg)`;
+    }
+    
+
+
+
+    // roundIcon.style.transform = `rotate(${circleRotate}deg)`;
+
    } else {
     // console.log("up")
 
@@ -194,7 +148,14 @@ console.log(st);
     // scrollBlockTop.style.height = `${scrollMove}px`;
     slideLeftCol.style.transform = `translateY(${boxMove}px)`; //slides columns up and down
     slideRightCol.style.transform = `translateY(${boxMove}px)`; //slides columns up and down
-    roundIcon.style.transform = `rotate(${circleRotate}deg)`;
+    // roundIcon.style.transform = `rotate(${circleRotate}deg)`;
+
+
+    roundIcon.forEach(rotateIcons)
+    function rotateIcons(item, index, arr){
+        item.style.transform = `rotate(${circleRotate}deg)`;
+    }
+
    }
    lastScrollTop = st <= 0 ? 0 : st;  //Not sure how this works
 
