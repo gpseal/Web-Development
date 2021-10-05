@@ -1,3 +1,16 @@
+//NAVIGATION
+
+let navButtons = document.querySelectorAll('.navButtons');
+
+function navigation(arrayNum, position){
+    navButtons[arrayNum].addEventListener('click', event => {
+        scrollbar.scrollTo(0, (position), 2000);
+        });
+}
+
+navigation(0, document.querySelector('.intro').offsetTop - 200);
+navigation(1, document.querySelector('#imageScrollContainer').offsetTop - 200);
+navigation(2, document.querySelector('.footer').offsetTop + 200);
 
 
 
@@ -5,7 +18,7 @@ let roundIcon = document.querySelectorAll('.roundIcon');  //make variable 'round
 let slideLeftCol = document.querySelector('.leftCol'); //variable for left coulmn
 let slideRightCol = document.querySelector('.rightCol');//variable for right coulmn
 let test = document.querySelectorAll('.roundIcon');
-console.log(test)
+
 
 
 let rotate = 10; //rotation value for round icons

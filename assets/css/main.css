@@ -3,6 +3,10 @@
   src: url();
 }
 
+#intro{
+}
+
+
 
 #page-scrollbar-container {
   width: 2px;
@@ -156,7 +160,13 @@ background-repeat: repeat-x;
   align-items: center;
   color: white;
   padding: 0px 20px;
-  font-size: 13px;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.navButtons:hover {
+  color: grey;
+  transition: 500ms ease all;
 }
 
 .navigation .navButtons:nth-child(4){
@@ -524,28 +534,39 @@ p{
   padding-top: 100px;
   padding-bottom: 100px;
   width: 100%;
-  display:grid;
-  grid-template-columns: 1fr 1fr;
+  display:flex;
   color: white;
+  align-items: space-between;
+  margin-bottom: 100px;
+}
+
+.contact .roundIconContainer{
+  align-self: auto;
+  margin-right: 0pc;
 }
 
 .contact .textBlock{
-  width: 85%;
+  width: 50%;
+  /* background-color: hotpink; */
+  margin-right: 80px;
   /* transform: translateY(-15%); */
 }
 
+.contact .textBlock h2{
+  font-size: 50px;
+  margin-top: 0ch;
+}
 
 .contactGrid{
-  padding: 15px;
   display: grid;
   align-items: center;
-  grid-template-columns: 50px 300px;
+  grid-template-columns: 50px 200px;
   grid-template-rows: repeat(3,50px);
 }
 
-.contactGrid div{
+/* .contactGrid div{
   transform: translateY(100px);
-}
+} */
 
 .footerContainer{
   border-top: 1px solid rgba(255, 255, 255, 0.3);
