@@ -272,7 +272,7 @@ function incrementCounter() {
 
         //SCROLLS IMAGES
         let moveImgs = function (){
-            imgScrollDist-=1;
+            imgScrollDist-=3;
             if (imgScrollDist <= -((imgScrollWidth/2)+1)){ //image x position will be reset when half of total images have scrolled past left margin of page
                 imgScrollDist = 0
             };
