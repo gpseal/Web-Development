@@ -33,7 +33,7 @@ var rect = footer.getBoundingClientRect();
 
 
 
-const faders = document.querySelectorAll('h2, h1, h3, .leftCol, .rightCol, .midCol, .logo, .bannerVid, .boxText, .navigation, .contactGrid div, .textBlock'); //target item of fade
+const faders = document.querySelectorAll('.icons, h2, h1, h3, .leftCol, .rightCol, .midCol, .logo, .bannerVid, .boxText, .navigation, .contactGrid div, .textBlock'); //target item of fade
 
 const appearOptions = {
     root: null,
