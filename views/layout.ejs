@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Jellyfish</title>
+
+    <link rel="stylesheet" href="css/main.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Martel+Sans:wght@200&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+
+    <script src="dist/smooth-scrollbar.js" defer></script>
+    <!-- <script src="js/my-smooth-scrollbar.js" defer></script> -->
+    <script src="js/main.js" defer> </script>
+
+        <!-- //loads entire document before executing script !!IMPORTANT!! -->
+
+</head>
+
+<body>
+
+    <!-- All our views will be contained within the body -->
+    <%- body %>
+
+</body>
+
+
+<script>
+
+
+
+
+window.onbeforeunload = function () {
+    window.scrollTo(0,0);
+};
+
+// window.scroll({
+//   top: 2500, 
+//   left: 0, 
+//   behavior: 'smooth'
+// });
+/*
+// Scroll certain amounts from current position 
+window.scrollBy({ 
+  top: 100, // could be negative value
+  left: 0, 
+  behavior: 'smooth' 
+});*/
+
+
+
+</script>
+
+</html>
