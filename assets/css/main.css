@@ -138,7 +138,6 @@ background-repeat: repeat-x;
 .navigation{    
   width: 65%;
   display:flex;
-  /*grid-template-columns: 1fr 1fr 3fr 1fr 1fr ;*/
 }
 
 .icons{
@@ -197,12 +196,13 @@ background-repeat: repeat-x;
   align-self: flex-end;
   z-index: 1;
 }
+
+
 .roundIcon{
   background-image: url("../../img/index_img/round-text.png") ;
   background-size: 100%;
   height: 100%;
   width: 100%;
-  
 }
 
 .bannerText{
@@ -651,7 +651,52 @@ a{
 
   }
 
+  .mobileNav{
+    height: 100px;
+    display: none;
+  }
+
   @media (max-width: 800px) {
+
+    /* .header{ */
+      /* width: 100vw; */
+      /* background-color: plum; */
+      /* justify-content: flex-start;
+      width: 100%;
+      
+    }
+    .navigation{ */
+      /* background-color: plum; */
+      /* margin-left: 0px;
+      align-items: start; */
+      /* display: none; */
+      /* width: 100vw;
+    }
+
+    .navLogo{
+      height: 30%;
+      margin-top: auto;
+      margin-bottom: auto;
+      display: none;
+    }
+
+    .navButtons{
+      height: 100%;
+      width: 20%; */
+      /* display: flex; */
+      /* justify-content: center; */
+      /* align-items: center; */
+      /* color: white; */
+      /* background-color:  pink; */
+      /* padding: 0px ;
+      font-size: 10px;
+      cursor: pointer;
+    } */
+
+    .mobileNav{
+      display: flex;
+    }
+
     .logo{
       width: 300px;
     }
