@@ -1,76 +1,54 @@
 
 
+<%- include ('partials/topNav.ejs') %>
 
-    <div id = "page-scrollbar-container">
-        <div id = "scroll-bar-block-top"></div>
-        <div id = "scroll-bar-thumb"></div>
-        <div id = "scroll-bar-block-bottom"></div>
-    </div>
-    
-    <div class = "header">  
-        <div class = "navigation">
-            <div class = "navButtons">INTRODUCTION</div>
-            <div class = "navButtons">GALLERY</div>
-            <img src="img/index_img/navlogo.png" class = "navLogo">
-            <div class = "navButtons">CONTACT</div>
-            <div class = "navButtons"><img src="img/icons/mail.png" alt=""></div>
-        </div>
-    </div>
 
-    
-
-    <div id="my-scrollbar">
+<div id="my-scrollbar">
 
     <section data-scrollbar>
 
-    <div class = "bannerVid">
-        <video playsinline autoplay muted loop id="bgvid">
-        <source src="video/jelly1.mp4" type="video/mp4">
-        </video>
+        <div class = "bannerVid">
+            <video playsinline autoplay muted loop id="bgvid">
+            <source src="video/jelly1.mp4" type="video/mp4">
+            </video>
+        </div>
+            
+
+        <div class = "headerimg"> 
+            <div class = "logo">
+                <img src="img/index_img/logo.png" class="center">
+            </div>
+            <div class = "bannerText">
+                <div class = "icons"><a href="https://www.instagram.com/"><img src="img/icons/instagram.png" alt=""></a></div>
+                <div class = "icons"><a href="https://www.facebook.com/"><img src="img/icons/facebook.png" alt=""></a></div>
+                <div class = "boxText"><p>blah blah blahtext, blah blah blahtext, blah blah blahtext, blah blah blahtext, blah blah blahtext, blah blah blahtext, blah blah blahtext, blah blah blahtext, blah blah blah</p></div>
+                <div class = "boxText"><p>text, blah blah blahtext, blah blah blahtext, blah blah blahtext, blah blah blahtext, blah blah blahtext, blah blah blahtext, blah blah blahtext, blah blah blahtext, blah blah blah</p></div>
+            </div>
+            <div class = "fadeGradient"></div>
         </div>
         
-
-
-    <!-- <div id = "scrollBar"></div> -->
-
-
-
-    <div class = "headerimg"> 
-        <div class = "logo">
-            <img src="img/index_img/logo.png" class="center">
-        </div>
-        <div class = "bannerText">
-            <div class = "icons"><a href="https://www.instagram.com/"><img src="img/icons/instagram.png" alt=""></a></div>
-            <div class = "icons"><a href="https://www.facebook.com/"><img src="img/icons/facebook.png" alt=""></a></div>
-            <div class = "boxText"><p>blah blah blahtext, blah blah blahtext, blah blah blahtext, blah blah blahtext, blah blah blahtext, blah blah blahtext, blah blah blahtext, blah blah blahtext, blah blah blah</p></div>
-            <div class = "boxText"><p>text, blah blah blahtext, blah blah blahtext, blah blah blahtext, blah blah blahtext, blah blah blahtext, blah blah blahtext, blah blah blahtext, blah blah blahtext, blah blah blah</p></div>
-        </div>
-        <div class = "fadeGradient"></div>
-
-    </div>
-    
-    <div class = "container">   
-        <div class = "subWindowContainer">
-            <div class="windowVideo">
-                <video playsinline autoplay muted loop id="bgvid">
-                    <source src="video/jelly5.mp4" type="video/mp4">
-                </video>
+        <div class = "container">   
+            <div class = "subWindowContainer">
+                <div class="windowVideo">
+                    <video playsinline autoplay muted loop id="bgvid">
+                        <source src="video/jelly5.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="subWindow"></div>
+                <div class="subWindowText"><h1>Explore the <b><i>new force</i></b> in the <b><i>Jellyfish</i></b></h1></div>
+                <div class = "roundIconContainer">
+                    <div class="roundIcon"></div>
+                </div>
             </div>
-            <div class="subWindow"></div>
-            <div class="subWindowText"><h1>Explore the <b><i>new force</i></b> in the <b><i>Jellyfish</i></b></h1></div>
-            <div class = "roundIconContainer">
-                <div class="roundIcon"></div>
-            </div>
-        </div>
 
             <div class = "twoColumn">
                 <div class = "intro"></div>  <!-- for navigation -->
                 <div class="midText"><h2>Some <b><i>JellyFish</i></b></h2></div>
             </div>
-    </div>
+        </div>
 
-    <div class = "whiteBack">
-        <div class = "container">
+        <div class = "whiteBack">
+            <div class = "container">
                 <div class = "threeColumnImg">
                     <div class = "leftCol">
                         <img src= "img/index_img/Jelly1.jpg" alt="Paris" width="100%">
@@ -88,23 +66,25 @@
                         <p>Recent times have exposed the vulnerability of the modern world we live in. At KIMI, we provide an experience that eliminates the health and safety risks of modern traveling. Your own private route at the airport means you avoid all crowded waiting lines at check-in, border security and the gate. Once in the air, only your inner circle accompanies you. We bring the amount of contact during your travel experience to a minimum, and escort you all the way through</p>
                     </div>
                 </div>
+
                 <div class = "centered">
                     <div class ="textBlock">
                         <h2>We work tirelessly to make an unforgettable JellyFish experience</h2>
                     </div>
                 </div>
+                    
                 <div class = "verticalLine"></div>
                 <div class = "roundIconContainer">
                     <div class="roundIcon"></div>
                 </div>
+            </div>
         </div>
-    </div>
-    
-    <div id="imageScrollContainer"></div>
+        
+        <div id="imageScrollContainer"></div>
 
-    <div class="weather"></div>
+        <div class="weather"></div>
 
-    <div class="container">
+        <div class="container">
             <div class="contact">
                 <div class="textBlock">
                     <h2>Some JellyFish Text</h2>
@@ -113,36 +93,23 @@
 
                 <div class="contactGrid">
                     <div><p>1</p></div>
-                    <div><p>Mail us and we’ll be in touch
-                        info@kimiaviation.com</p></div>
+                    <div><p>Mail us and we’ll be in touch info@kimiaviation.com</p></div>
                     <div><p>2</p></div>
-                    <div><p>Mail us and we’ll be in touch
-                        info@kimiaviation.com</p></div>
+                    <div><p>Mail us and we’ll be in touch info@kimiaviation.com</p></div>
                     <div><p>3</p></div>
-                    <div><p>Mail us and we’ll be in touch
-                        info@kimiaviation.com</p></div>
+                    <div><p>Mail us and we’ll be in touch info@kimiaviation.com</p></div>
                 </div>
                 <div class = "roundIconContainer">
                     <div class="roundIcon"></div>
                 </div>
             </div>
-    </div>
-
-   <div class="footerContainer">
-        <div class="footer">
-            <div class = "icons"><a href="https://www.instagram.com/"><img src="img/icons/instagram.png" alt=""></a></div>
-            <div class = "icons"><a href="https://www.facebook.com/"><img src="img/icons/facebook.png" alt=""></a></div>
-            <div class ="navButtons"><a href = "mailto: sealgp1@student.op.ac.nz">SEALGP1@STUDENT.OP.AC.NZ</a></div>
-            <div class ="navButtons">2021 KIMI AVIATION</div>
-            <div class ="navButtons">2021 KIMI AVIATION</div>
         </div>
-   </div>
-   
- 
+
+        <%- include ('partials/footer.ejs') %>  
+
+    </section>
+
 </div>
-
-</section>
-
 
 <!-- <script>
 
