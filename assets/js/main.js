@@ -8,9 +8,12 @@ function navigation(arrayNum, position){
         });
 }
 
-navigation(0, document.querySelector('.intro').offsetTop - 200);
-navigation(1, document.querySelector('#imageScrollContainer').offsetTop - 200);
-navigation(2, document.querySelector('.footer').offsetTop + 200);
+let viewHeight = document.querySelector('.headerimg').clientHeight; //div with 100vh gives vieport heigth
+console.log(viewHeight)
+
+navigation(0, document.querySelector('.intro').offsetTop);
+navigation(1, document.querySelector('.gallery').offsetTop + viewHeight/3);
+navigation(2, document.querySelector('.footer').offsetTop+500);
 
 
 
@@ -71,11 +74,6 @@ let scrollPage = document.querySelector(".scroll")
 var options = {
     damping: .05,
     thumbMinSize: 200,
-    // renderByPixels: boolean,
-    // alwaysShowTracks: boolean,
-    // continuousScrolling: boolean,
-    // wheelEventTarget: EventTarget | null,
-    // plugins: any,
   };
 
 
@@ -102,15 +100,12 @@ let scrollBlockTop = document.getElementById("scroll-bar-block-top"); //for alte
 
 
 
-// scrollBlockTop.style.height = "20px";
-
-// console.log(scrollBlockTop.style.height)
-
 scrollbar.addListener((status) => {
     // console.log(scrollbar.offset.y)
   });
 
 console.log(document.querySelector('body'));
+
 //CHECKING DIRECTION OF SCROLL
 // element should be replaced with the actual target element on which you have applied scroll, use window in case of no target element.
 scrollbar.addListener((status) => { // or window.addEventListener("scroll"....
@@ -122,6 +117,7 @@ scrollbar.addListener((status) => { // or window.addEventListener("scroll"....
    {
        menu.classList.add("headerFade") //add class to menu, should toggle be used here?
    }
+
    else{
        menu.classList.remove("headerFade")
    }
@@ -129,58 +125,43 @@ scrollbar.addListener((status) => { // or window.addEventListener("scroll"....
 console.log(st);
 
    //elements that movedepending on scroll
-   if (st > lastScrollTop){
+   if (st > lastScrollTop)
+   {
+        boxMove -= .7;
+        circleRotate += 3;
+        slideLeftCol.style.transform = `translateY(${boxMove}px)`; //slides columns up and down
+        slideRightCol.style.transform = `translateY(${boxMove}px)`; //slides columns up and down
     
-    boxMove -= .7;
-    circleRotate += 3;
-    
+        roundIcon.forEach(rotateIcons)
 
-    // scrollBlockTop.style.height = `${scrollMove}px`;
-
-    slideLeftCol.style.transform = `translateY(${boxMove}px)`; //slides columns up and down
-    slideRightCol.style.transform = `translateY(${boxMove}px)`; //slides columns up and down
-    
-    roundIcon.forEach(rotateIcons)
-    function rotateIcons(item, index, arr){
+        function rotateIcons(item, index, arr){
         item.style.transform = `rotate(${circleRotate}deg)`;
-    }
-    
+        }
+    } 
+   
+    else{
+        boxMove += .7;
+        circleRotate -= 3;
+        slideLeftCol.style.transform = `translateY(${boxMove}px)`; //slides columns up and down
+        slideRightCol.style.transform = `translateY(${boxMove}px)`; //slides columns up and down
 
-
-
-    // roundIcon.style.transform = `rotate(${circleRotate}deg)`;
-
-   } else {
-    // console.log("up")
-
-    boxMove += .7;
-    circleRotate -= 3;
-
-    // console.log(scrollMove)
-    // console.log(boxMove + " up")
-    // scrollBlockTop.style.height = `${scrollMove}px`;
-    slideLeftCol.style.transform = `translateY(${boxMove}px)`; //slides columns up and down
-    slideRightCol.style.transform = `translateY(${boxMove}px)`; //slides columns up and down
-    // roundIcon.style.transform = `rotate(${circleRotate}deg)`;
-
-
-    roundIcon.forEach(rotateIcons)
-    function rotateIcons(item, index, arr){
-        item.style.transform = `rotate(${circleRotate}deg)`;
+        roundIcon.forEach(rotateIcons)
+        function rotateIcons(item, index, arr){
+            item.style.transform = `rotate(${circleRotate}deg)`;
+        }
     }
 
-   }
    lastScrollTop = st <= 0 ? 0 : st;  //Not sure how this works
 
-   if(boxMove > 152)
+    if (boxMove > 152)
         {boxMove = 152};
-   if(boxMove < -100)
+
+    if (boxMove < -100)
         {boxMove = -100};
     
     if (scrollMove<0) {
         scrollMove = 0;
     }
-        
 
 }, false);
 
@@ -217,10 +198,7 @@ var weatherSlider = (async () => {    //USE THIS METHOD FOR HIGHER MARKS MARKS
     return totalWidth;
 });
 
-// console.log(weatherSlider)
-
 let totalWeatherWidth = weatherSlider();
-
 let totalWeatherWidth2 = weatherSlider();
 
 //--------------------------IMAGE SCROLLER------------------------------------//
@@ -238,7 +216,6 @@ for(let j=0; j < 2; j++) {
 }
 
 //LOADS ALL IMAGES before calculating widths
-
 var imgs = document.images,
     len = imgs.length,
     counter = 0;
@@ -253,17 +230,14 @@ var imgs = document.images,
 function incrementCounter() {
     counter++;
     if ( counter === len ) {
-        // console.log( 'All images loaded!' );
 
         //CALCULATES TOTAL WIDTH OF IMAGE SCROLLER 
         let imagesScroll = document.querySelectorAll(".imageScroll")
         let imgScrollWidth = 0;
         imagesScroll.forEach(e => {
-            // console.log(e,e.getBoundingClientRect().width);
             let w = e.clientWidth
             imgScrollWidth += w;
         })
-        // console.log(imgScrollWidth)
 
         let imgScrollDist = 0;
 
@@ -277,7 +251,6 @@ function incrementCounter() {
                 imgScrollDist = 0
             };
             ScrollContainer.style.transform = `translatex(${imgScrollDist}px)`;  //moves images 1 point to the left
-            // console.log(imgScrollDist);
         }
 
         let timer = function (target){
@@ -286,52 +259,6 @@ function incrementCounter() {
         timer(moveImgs); //repeats moveImgs function endlessly
     }
 }
-
-
-
-// let imagesScroll = document.querySelectorAll(".imageScroll")
-
-// let imgScrollWidth = 0;
-
-// imagesScroll.forEach(e => {
-//     console.log(e,e.getBoundingClientRect().width);
-//     let w = e.clientWidth
-//     imgScrollWidth += w;
-// })
-
-// ScrollContainer.style.width = `${imgScrollWidth}px`;
-
-// let imgScrollDist = -(imgScrollWidth/4);
-// console.log(imagesScroll[4].clientWidth)
-
-// let scrollWhite = document.querySelector('.imageScroll .whiteBack');
-
-// let imageGallery = document.querySelector(".imageScroll");
-
-// console.log(imgScrollWidth)
-
-// let scrollCount = 0;
-
-
-
-
-// let imageScroller = function (){
-
-//     let test = document.createElement('div');
-//     test.innerHTML="test"
-//     ScrollContainer.appendChild(test);
-
-//     if (scrollCount > 50){
-//         ScrollContainer.appendChild(test);
-//     }
-//     scrollCount += 1;
-    
-// }
-// console.log(ScrollContainer)
-
-
-
-
 
 var interval;
 let weatherWidth = 7890;
@@ -343,72 +270,22 @@ let timer = function (target){
 
 let moveWeather = function (){
     weatherDist-=2;
-    if (weatherDist <= -(weatherWidth/2)){
+    if (weatherDist <= -(weatherWidth/2))
+    {
     weatherDist = -(weatherWidth/4)
     };
-    weatherScroll.style.transform = `translatex(${weatherDist}px)`;
-    
-}
 
+    weatherScroll.style.transform = `translatex(${weatherDist}px)`;
+}
 
 var children = document.querySelector(".imageScroll").childNodes;
 var totalWidth = 0;
 
-
 timer(moveWeather);
 
-
-// for (var i = ; i < children.length; i++) {
-//     totalWidth += children[i].clientWidth;
-    
-// }
-
-// console.log(children[4].clientHeight)
-
-// console.log(children);
-
-
-// // console.log(totalWidth);
-
-// timer(imageScroller);
-
-// let 
-
-
-// timer(position);
-
-// console.log(scrollbar);
-
-// var myScrollbar = document.getElementById(`imageScrollContainer`)
-
-
-//let scrollbar = document.querySelector('.scrollbar-thumb-y');
-
-
-// console.log(scrollbar.transform.translateX)
-
-
-
-// myScrollbar.addEventListener("move", myFunction, false)
-// $('#my-scrollbar').on("scroll", e=> console.log(e))
-
-
 var footerContainer = document.querySelector('.footerContainer')
-// var footerPos = myScrollbar.getBoundingClientRect();
-// console.log(footerPos.top)
-
-/*
-var style = window.getComputedStyle(scrollbar);
-var matrix = new WebKitCSSMatrix(style.transform);
-
-console.log(matrix)
-console.log(matrix)*/
 
 
-
-/*
-var showChange = () => {
-    console.log(footerPos.left)
-}
-
-timer(showChange);*/
+let arrows = document.querySelectorAll('.roundIconContainer')
+arrows[1].style.backgroundImage = "url('../../img/index_img/arrowLR.png')";
+arrows[2].style.backgroundImage = "url('../../img/index_img/arrowUp.png')";
