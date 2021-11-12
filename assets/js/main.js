@@ -8,9 +8,12 @@ function navigation(arrayNum, position){
         });
 }
 
-navigation(0, document.querySelector('.intro').offsetTop - 200);
-navigation(1, document.querySelector('#imageScrollContainer').offsetTop - 200);
-navigation(2, document.querySelector('.footer').offsetTop + 200);
+let viewHeight = document.querySelector('.headerimg').clientHeight; //div with 100vh gives vieport heigth
+console.log(viewHeight)
+
+navigation(0, document.querySelector('.intro').offsetTop);
+navigation(1, document.querySelector('.gallery').offsetTop + viewHeight/3);
+navigation(2, document.querySelector('.footer').offsetTop+500);
 
 
 
