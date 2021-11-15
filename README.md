@@ -8,10 +8,10 @@ https://www.kimiaviation.com/
 
 To view the site on a local server:
 
-- Install nodejs here:  https://nodejs.org/en/download/
+- If required, install nodejs here:  https://nodejs.org/en/download/
 
-within gitBash
-
+within Terminal:
+npm start
 
 Install ejs to enable propper use of templates:
 npm install ejs --save
