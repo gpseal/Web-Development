@@ -8,33 +8,24 @@ function navigation(arrayNum, position){
         });
 }
 
-let viewHeight = document.querySelector('.headerimg').clientHeight; //div with 100vh gives vieport heigth
-console.log(viewHeight)
+let viewHeight = document.querySelector('.headerimg').clientHeight; //div with 100vh gives viewport height
 
 navigation(0, document.querySelector('.intro').offsetTop);
 navigation(1, document.querySelector('.gallery').offsetTop + viewHeight/3);
 navigation(2, document.querySelector('.footer').offsetTop+500);
 
 
-
 let roundIcon = document.querySelectorAll('.roundIcon');  //make variable 'roundIcon' associate with .btn elements
-let slideLeftCol = document.querySelector('.leftCol'); //variable for left coulmn
-let slideRightCol = document.querySelector('.rightCol');//variable for right coulmn
-let test = document.querySelectorAll('.roundIcon');
-
-
+let slideLeftCol = document.querySelector('.leftCol'); //variable for left column
+let slideRightCol = document.querySelector('.rightCol');//variable for right column
 
 let rotate = 10; //rotation value for round icons
 let move = 5;
 const body = document.querySelector('body');
 
-
 let footer = document.querySelector('.footerContainer');
 
 var rect = footer.getBoundingClientRect();
-
-
-
 
 const faders = document.querySelectorAll('.icons, h2, h1, h3, .leftCol, .rightCol, .midCol, .logo, .bannerVid, .boxText, .navigation, .contactGrid div, .textBlock'); //target item of fade
 
@@ -43,7 +34,7 @@ const appearOptions = {
     threshold: 0.2
 };
 
-//ITEMS APPEAR FOR FIRST TIME WHEN USER
+//ITEMS APPEAR FOR FIRST TIME WHEN USER - credit: https://www.youtube.com/watch?v=T8EYosX4NOo
 const appearOnScroll = new IntersectionObserver
 (function(entries, appearOnScroll) {
     entries.forEach(entry =>{
@@ -52,8 +43,6 @@ const appearOnScroll = new IntersectionObserver
         }
         else{
             setTimeout(() => {entry.target.classList.add('appear')}, 000);
-            // console.log("works");
-            ; //adds class appear to target element
             appearOnScroll.unobserve(entry.target);  //stops watching target
         }
 })
@@ -63,48 +52,40 @@ faders.forEach(fader => {
     appearOnScroll.observe(fader);
 });
 
-
 var lastScrollTop = 0;
 let boxMove = 50;
 let circleRotate = 0;
 let scrollMove = 0;
 let scrollPage = document.querySelector(".scroll")
 
-
-var options = {
+var options = { //scrollbar options
     damping: .05,
     thumbMinSize: 200,
   };
 
-
-
 var Scrollbar = window.Scrollbar;
 let scrollbar = Scrollbar.init(document.querySelector('#my-scrollbar'), options);
 
-console.log(scrollbar.size)
-
-let ScrollbarSize = {
-    container: {
-      width: 100,
-      height: 100,
-    },
-    content: {
-      width: 10,
-      height: 10,
-    },
-  };
-  scrollbar.update();
+// let ScrollbarSize = {
+//     container: {
+//       width: 100,
+//       height: 100,
+//     },
+//     content: {
+//       width: 10,
+//       height: 10,
+//     },
+//   };
+//   scrollbar.update();
 
 // document.getElementById("scroll-bar-block-top").style.height = "10px";
 let scrollBlockTop = document.getElementById("scroll-bar-block-top"); //for altering custom scrollbar appearance
 
+// scrollbar.addListener((status) => {
+//     // console.log(scrollbar.offset.y)
+//   });
 
-
-scrollbar.addListener((status) => {
-    // console.log(scrollbar.offset.y)
-  });
-
-console.log(document.querySelector('body'));
+// console.log(document.querySelector('body'));
 
 //CHECKING DIRECTION OF SCROLL
 // element should be replaced with the actual target element on which you have applied scroll, use window in case of no target element.
@@ -122,9 +103,7 @@ scrollbar.addListener((status) => { // or window.addEventListener("scroll"....
        menu.classList.remove("headerFade")
    }
 
-console.log(st);
-
-   //elements that movedepending on scroll
+   //elements that move depending on scroll
    if (st > lastScrollTop)
    {
         boxMove -= .7;
@@ -169,12 +148,12 @@ console.log(st);
 //WEATHER SCROLL
 let weatherScroll = document.querySelector(".weather");
 
-var weatherSlider = (async () => {    //USE THIS METHOD FOR HIGHER MARKS MARKS
+var weatherSlider = (async () => {    
         let res = await fetch("https://api.openweathermap.org/data/2.5/group?id=4176559,7839413,7839579,2073124,4971068,1854345,3171654,3390760,5329830,6359472&units=metric&appid=c5b06d2187f47581abc4627906708ad5");
         let data = await res.json();
         let weather = data;
 
-        for (let i = 0; i < 4; i++) {
+        for (let i = 0; i < 4; i++) { //populates weather slider
             weather.list.forEach(element => {
                 let city = document.createElement('div');
                 city.innerHTML = element.name;
@@ -184,27 +163,14 @@ var weatherSlider = (async () => {    //USE THIS METHOD FOR HIGHER MARKS MARKS
                 weatherScroll.appendChild(temperature.cloneNode(true))
                 });
             }
-      
-        let widths = weatherScroll.childNodes;
-        let totalWidth = 0;
-
-        widths.forEach(e => {
-            let w = e.clientWidth
-            totalWidth += w;
-        })
-
-    console.log(totalWidth)
-      
-    return totalWidth;
 });
 
 let totalWeatherWidth = weatherSlider();
-let totalWeatherWidth2 = weatherSlider();
 
 //--------------------------IMAGE SCROLLER------------------------------------//
 
 
-for(let j=0; j < 2; j++) {
+for(let j=0; j < 2; j++) { //populates image slider
     for (let i=0; i < 10; i++) {
         let imageDiv = document.createElement("div");
         imageDiv.className = "imageScroll";
@@ -226,6 +192,7 @@ var imgs = document.images,
     else
       img.addEventListener( 'load', incrementCounter, false );
 } );
+
 
 function incrementCounter() {
     counter++;
@@ -261,8 +228,8 @@ function incrementCounter() {
 }
 
 var interval;
-let weatherWidth = 7890;
-let weatherDist = -(weatherWidth/4);
+let weatherWidth = 7890; //estimated value, couldn't get accurate value from JS function
+let weatherDist = -(weatherWidth/4);//sets distance to restart weather slider position
 
 let timer = function (target){
     interval = setInterval(target, 50); //to create delays before repeatedly executing function
@@ -275,13 +242,13 @@ let moveWeather = function (){
     weatherDist = -(weatherWidth/4)
     };
 
-    weatherScroll.style.transform = `translatex(${weatherDist}px)`;
+    weatherScroll.style.transform = `translatex(${weatherDist}px)`; 
 }
 
 var children = document.querySelector(".imageScroll").childNodes;
 var totalWidth = 0;
 
-timer(moveWeather);
+timer(moveWeather); //slides weather div with each timer tick
 
 var footerContainer = document.querySelector('.footerContainer')
 
