@@ -6,12 +6,12 @@ https://fathomless-plateau-00600.herokuapp.com/
 Inspiration site:
 https://www.kimiaviation.com/
 
-To view the site on a local server:
+**To view the site on a local server:**
 
-- Install nodejs here:  https://nodejs.org/en/download/
+If required, install nodejs here:  https://nodejs.org/en/download/
 
-within gitBash
+Within terminal, to start local server:
+$ npm start
 
-
-Install ejs to enable propper use of templates:
-npm install ejs --save
+Once server has been started, view in browser:
+localhost:3000
