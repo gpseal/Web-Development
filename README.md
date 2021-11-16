@@ -13,5 +13,5 @@ If required, install nodejs here:  https://nodejs.org/en/download/
 Within terminal, to start local server:
 $ npm start
 
-Once server has bee started, view in browser:
+Once server has been started, view in browser:
 localhost:3000
