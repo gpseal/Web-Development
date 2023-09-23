@@ -1,10 +1,16 @@
 # Web-Development
 
+## Assignment Brief
+Build a one page website using vanilla js based on an existing website
+
+
 Live website can be viewed at:
 https://sealgp1-web.onrender.com/
 
+
 Inspiration site:
 https://www.kimiaviation.com/
+
 
 **To view the site on a local server:**
 
