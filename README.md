@@ -1,7 +1,7 @@
 # Web-Development
 
 Live website can be viewed at:
-https://fathomless-plateau-00600.herokuapp.com/
+https://sealgp1-web.onrender.com/
 
 Inspiration site:
 https://www.kimiaviation.com/
