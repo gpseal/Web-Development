@@ -1,7 +1,7 @@
 # Web-Development
 
 ## Assignment Brief
-Build a one page website using vanilla js based on an existing website
+Build a one page website using vanilla js based on an existing site.
 
 
 Live website can be viewed at:
